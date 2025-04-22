@@ -8,13 +8,36 @@
 
 </head>
 <body>
+    <div class="sidebar">
+        <h2>Instagram</h2>
+        <p>Página Inicial</p>
+        <p>Pesquisa</p>
+        <p>Explorar</p>
+        <p>Reels</p>
+        <p>Mensagens</p>
+        <p>Notificações</p>
+        <p>Criar</p>
+        <p>Perfil</p>
+      </div>
+    
+      <div class="main-content">
+        <div class="stories">
+          <div class="story"><img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Story"></div>
+          <div class="story"><img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Story"></div>
+          <div class="story"><img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Story"></div>
+          <div class="story"><img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Story"></div>
+          <div class="story"><img src="https://randomuser.me/api/portraits/women/5.jpg" alt="Story"></div>
+        </div>
+    
+        <div id="pinterestFeed"></div>
+      </div>
+
     <div class="container">
         <aside class="sidebar">
             <div class="logo"><img src="./img/logo.png" alt="">
                 <div class="logo"><img src="./img/icone1.png" alt="">
                     <div class="logo"><img src="./img/icon2.png" alt="">
                         <div class="logo"><img src="./img/icon3.png" alt="">
-                            <div class="logo"><img src="./img/icon4.png" alt="">
                                 <div class="logo"><img src="./img/icon5.png" alt="">
                         
             
@@ -24,43 +47,15 @@
                 <ul>
                     <li><i class="fas fa-home"></i></li>
                     <li><i class="fas fa-search"></i></li>
-                    <li><i class="fas fa-bell"></i></li>
                     <li><i class="fas fa-comment"></i></li>
                 </ul>
             </nav>
         </aside>
         <main>
-            <header>
-                <input type="text" placeholder="Pesquisar">
-            </header>
-            <section class="categories">
-                <button>Todos</button>
-                <button>Piercings</button>
-                <button>Unhas</button>
-                <button>Tênis</button>
-                <button>Decoração</button>
-                <button>Cabelos</button>
-                <button>Looks</button>
-                <button>Sapatos</button>
-                <button>Maquiagens</button>
-                <button>Joias</button>
-            </section>
-            <section class="gallery">
-                <div class="item"><img src="/tela.home/img/img1.jpg" alt="Imagem 1"></div>
-                <div class="item"><img src="/tela.home/img/img2.jpg" alt="Imagem 2"></div>
-                <div class="item"><img src="/tela.home/img/img3.jpg" alt="Imagem 3"></div>
-                <div class="item"><img src="/tela.home/img/img5.jpg" alt="Imagem 5"></div>
-                <div class="item"><img src="/tela.home/img/img6.jpg" alt="Imagem 6"></div>
-                <div class="item"><img src="/tela.home/img/img8.jpg" alt="Imagem 8"></div>
-                <div class="item"><img src="/tela.home/img/img9.jpg" alt="Imagem 9"></div>
-                <div class="item"><img src="/tela.home/img/img10.jpg" alt="Imagem 10"></div>
-                <div class="item"><img src="/tela.home/img/img11.jpg" alt="Imagem 11"></div>
-                <div class="item"><img src="/tela.home/img/img12.jpg" alt="Imagem 12"></div>
-                <div class="item"><img src="/tela.home/img/img13.jpg" alt="Imagem 13"></div>
-                <div class="item"><img src="/tela.home/img/img17.jpg" alt="Imagem 17"></div>
-                <div class="item"><img src="/tela.home/img/img18.jpg" alt="Imagem 18"></div>
-                
-            </section>
+            
+            
+            <section class="pinterest-feed" id="pinterestFeed"></section>
         </main>
     </div>
+    <script src="teste.js"></script>
 </body>

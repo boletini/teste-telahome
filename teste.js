@@ -1,29 +1,52 @@
-const gallery = document.getElementById('gallery');
+document.addEventListener("DOMContentLoaded", () => {
+    const feed = document.getElementById("pinterestFeed");
 
-const images = [
-    './img/img1.jpg',
-    './img/img2.jpg',
-    './img/img3.jpg',
-    './img/img4.jpg',
-    './img/img5.jpg',
-    './img/img6.jpg',
-    './img/img7.jpg',
-    './img/img8.jpg',
-    './img/img9.jpg',
-    './img/img10.jpg',
-    './img/img11.jpg',
-    './img/img12.jpg',
-    './img/img13.jpg',
-    './img/img14.jpg',
-    './img/img15.jpg',
-    './img/img16.jpg',
-    './img/img17.jpg',
-    './img/img18.jpg'
-    
-];
+    async function carregarPins() {
+      try {
+        const resposta = await fetch('https://back-spider.vercel.app/publicacoes/listarPublicacoes');
+        if (!resposta.ok) throw new Error('Erro ao buscar publicações');
 
-images.forEach(src => {
-    const img = document.createElement('img');
-    img.src = src;
-    gallery.appendChild(img);
-});
+        const publicacoes = await resposta.json();
+
+        if (!Array.isArray(publicacoes)) throw new Error("Resposta inesperada da API");
+
+        feed.innerHTML = '';
+
+        publicacoes.forEach(post => {
+          if (!post.imagem) return;
+
+          const card = document.createElement("div");
+          card.classList.add("pinterest-card");
+
+          card.innerHTML = `
+            <img src="${post.imagem}" alt="Imagem">
+            <div class="actions">
+              <div class="left">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-comment"></i>
+                <i class="fa-regular fa-paper-plane"></i>
+              </div>
+              <div class="right">
+                <i class="fa-regular fa-bookmark"></i>
+              </div>
+            </div>
+            <div class="desc">${post.descricao || ''}</div>
+          `;
+
+          const heartIcon = card.querySelector('.fa-heart');
+          heartIcon.addEventListener('click', () => {
+            heartIcon.classList.toggle('fa-regular');
+            heartIcon.classList.toggle('fa-solid');
+            heartIcon.classList.toggle('liked');
+          });
+
+          feed.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Erro ao carregar pins:', err);
+        feed.innerHTML = "<p style='text-align:center'>Erro ao carregar imagens 😢</p>";
+      }
+    }
+
+    carregarPins();
+  });
